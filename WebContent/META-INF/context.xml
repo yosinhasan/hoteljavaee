@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/hotel" auth="Container" type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30" maxWait="10000" username="root" password="root"
+		driverClassName="com.mysql.jdbc.Driver" defaultAutoCommit="false"
+		defaultTransactionIsolation="READ_COMMITTED" url="jdbc:mysql://127.0.0.1/hotel" />
+
+	<Resource name="mail/Session" auth="Container" type="javax.mail.Session"
+		mail.transport.protocol="smtp" mail.smtp.host="smtp.gmail.com"
+		mail.smtp.starttls.enable="true" mail.smtp.port="587"
+		mail.smtp.user="yosin.businesshotel@gmail.com" mail.smtp.auth="true"
+		password="hotelpassword" mail.smtp.ssl.trust="smtp.gmail.com" />
+</Context>

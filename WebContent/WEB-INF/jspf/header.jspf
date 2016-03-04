@@ -1,0 +1,113 @@
+<div class="header_bg">
+	<div class="wrap">
+		<div class="header">
+			<div class="logo">
+				<a href="index.jsp"><img src="images/logo.png" alt=""></a>
+			</div>
+			<div class="h_right">
+				<!--start menu -->
+				<ul class="menu">
+					<c:choose>
+						<c:when
+							test="${requestScope['command'] == null || requestScope['command'] == 'index'  }">
+							<li class="active"><a href="controller?command=index">${lang.home }</a></li> |
+						</c:when>
+						<c:otherwise>
+							<li><a href="controller?command=index">${lang.home }</a></li> |
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${requestScope['command'] == 'rooms'}">
+							<li class="active"><a href="controller?command=rooms">${lang.rooms }</a></li> |
+						</c:when>
+						<c:otherwise>
+							<li><a href="controller?command=rooms">${lang.rooms }</a></li> |
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${requestScope['command'] == 'reservation'}">
+							<li class="active"><a href="controller?command=reservation">${lang.reservation}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="controller?command=reservation">${lang.reservation}</a></li> |
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${requestScope['command'] == 'activities'}">
+							<li class="active"><a href="controller?command=activities">${lang.activities}</a></li> |
+						</c:when>
+						<c:otherwise>
+							<li><a href="controller?command=activities">${lang.activities}</a></li> |
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${sessionScope['user'] == null }">
+							<c:choose>
+								<c:when test="${requestScope['command'] == 'login'}">
+									<li class="active"><a href="controller?command=login">${lang.signIn}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="controller?command=login">${lang.signIn }</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${requestScope['command'] == 'signup'}">
+									<li class="active"><a href="controller?command=signup">${lang.signUp}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="controller?command=signup">${lang.signUp }</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:when>
+						<c:otherwise>
+							<li><a
+								href="<%=getServletContext().getContextPath()%>/${cabinet }">${lang.cabinet }</a></li>
+							<li><a
+								href="<%=getServletContext().getContextPath()%>/controller?command=logout">${lang.logout }</a></li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				<form class="drp_dwn" method="post"
+					action="<%=getServletContext().getContextPath()%>/changeLocale">
+					<div class="form-group">
+						<select name="locale" class="form-control"
+							data-style="btn-primary">
+							<c:choose>
+								<c:when test="${locale == 'EN' }">
+									<option value="EN" selected="selected">${lang.en }</option>
+
+								</c:when>
+								<c:otherwise>
+									<option value="EN" selected="selected">${lang.en }</option>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${locale == 'RU' }">
+									<option value="RU" selected="selected">${lang.ru }</option>
+								</c:when>
+								<c:otherwise>
+									<option value="RU">${lang.ru }</option>
+								</c:otherwise>
+							</c:choose>
+
+
+						</select>
+					</div>
+				</form>
+			</div>
+			<div class="clear"></div>
+			<div class="top-nav">
+				<nav class="clearfix">
+					<ul>
+						<li class="active"><a href="controller?command=index">${lang.home }</a></li>
+						<li><a href="controller?command=rooms">${lang.rooms }</a></li>
+						<li><a href="controller?command=reservation">${lang.reservation}</a></li>
+						<li><a href="controller?command=activities">${lang.activities}</a></li>
+						<li><a href="controller?command=contact">${lang.contact}</a></li>
+					</ul>
+					<a href="#" id="pull">Menu</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>

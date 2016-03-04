@@ -1,0 +1,138 @@
+<div class="footer_bg">
+	<div class="wrap">
+		<div class="footer">
+			<div class="copy">
+				<p class="link">
+					<span>${lang.made } © Yosin Hasan</span>
+				</p>
+			</div>
+			<div class="f_nav">
+				<ul>
+					<li><a href="controller?command=index">${lang.home }</a></li>
+					<li><a href="controller?command=rooms">${lang.rooms }</a></li>
+					<li><a href="controller?command=reservation">${lang.reservation }</a></li>
+				</ul>
+			</div>
+			<div class="soc_icons">
+				<ul>
+					<li><a class="icon1" href="#"></a></li>
+					<li><a class="icon2" href="#"></a></li>
+					<li><a class="icon3" href="#"></a></li>
+					<li><a class="icon4" href="#"></a></li>
+					<li><a class="icon5" href="#"></a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-table.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/fwslider.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script>
+	$(function() {
+		$("#datepicker,#datepicker1").datepicker({
+			dateFormat : "yy-mm-dd",
+			minDate : new Date(),
+		});
+	});
+</script>
+<script>
+	$(function() {
+		var pull = $('#pull');
+		menu = $('nav ul');
+		menuHeight = menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function() {
+			var w = $(window).width();
+			if (w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	var $table = $('#fresh-table'), $alertBtn = $('#alertBtn'), full_screen = false;
+
+	$().ready(function() {
+		$table.bootstrapTable({
+			toolbar : ".toolbar",
+
+			showRefresh : false,
+			search : true,
+			showToggle : false,
+			showColumns : true,
+			pagination : true,
+			striped : false,
+			pageSize : 8,
+			pageList : [ 8, 10, 25, 50, 100 ],
+
+			formatShowingRows : function(pageFrom, pageTo, totalRows) {
+				//do nothing here, we don't want to show the text "showing x of y from..." 
+			},
+			formatRecordsPerPage : function(pageNumber) {
+				return pageNumber + " rows visible";
+			},
+			icons : {
+				refresh : 'fa fa-refresh',
+				toggle : 'fa fa-th-list',
+				columns : 'fa fa-columns',
+				detailOpen : 'fa fa-plus-circle',
+				detailClose : 'fa fa-minus-circle'
+			}
+		});
+
+		$(window).resize(function() {
+			$table.bootstrapTable('resetView');
+		});
+
+		window.operateEvents = {
+			'click .like' : function(e, value, row, index) {
+				alert('You click like icon, row: ' + JSON.stringify(row));
+				console.log(value, row, index);
+			},
+			'click .edit' : function(e, value, row, index) {
+				alert('You click edit icon, row: ' + JSON.stringify(row));
+				console.log(value, row, index);
+			},
+			'click .remove' : function(e, value, row, index) {
+				$table.bootstrapTable('remove', {
+					field : 'id',
+					values : [ row.id ]
+				});
+
+			}
+		};
+
+		$alertBtn.click(function() {
+			alert("You pressed on Alert");
+		});
+
+	});
+</script>
+<script type="text/javascript">
+	$().ready(function() {
+		$('[rel="tooltip"]').tooltip();
+
+	});
+
+	function rotateCard(btn) {
+		var $card = $(btn).closest('.card-container');
+		console.log($card);
+		if ($card.hasClass('hover')) {
+			$card.removeClass('hover');
+		} else {
+			$card.addClass('hover');
+		}
+	}
+</script>

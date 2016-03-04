@@ -1,0 +1,17 @@
+<%--=========================================================================== 
+JSTL core tag library.
+===========================================================================--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%--=========================================================================== 
+JSTL functions tag library.
+===========================================================================--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%--=========================================================================== 
+Custom tag library.
+===========================================================================
+<%@taglib prefix="my" uri="/WEB-INF/tlds/custom-tags.tld"%>--%>
+<%@taglib prefix="manager" uri="/WEB-INF/tlds/request-tags.tld"%>
+<%@taglib prefix="client" uri="/WEB-INF/tlds/response-tags.tld"%>
+<%@taglib prefix="cm" uri="/WEB-INF/tlds/finance-tags.tld"%>
+

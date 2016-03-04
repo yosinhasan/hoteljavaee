@@ -1,0 +1,31 @@
+<div class="sidebar2 pull-left">
+	<ul class="nav nav-pills nav-stacked">
+		<c:choose>
+			<c:when test="${requestScope['command'] == 'client' }">
+				<li class="active"><a href="controller?command=client">${lang.home }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="controller?command=client">${lang.home } </a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${requestScope['command'] == 'bookingHistory' }">
+				<li class="active"><a href="controller?command=bookingHistory">${lang.bookingHistory }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="controller?command=bookingHistory">${lang.bookingHistory }</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${requestScope['command'] == 'settings' }">
+				<li class="active"><a href="controller?command=settings">${lang.settings }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="controller?command=settings">${lang.settings }</a></li>
+			</c:otherwise>
+		</c:choose>
+		<li><a href="controller?command=index">${lang.exitCabinet }</a></li>
+		<li><a href="controller?command=logout">${lang.logout }</a></li>
+	</ul>
+
+</div>
